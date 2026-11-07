@@ -43,7 +43,7 @@ import java.io.InputStream;
 public class MainActivity extends Activity {
 
     // ▼▼▼ PUT YOUR PAGE ADDRESS HERE (must start with https://). It is never shown to the user. ▼▼▼
-    private static final String START_URL = "https://REPLACE-WITH-YOUR-PAGE-ADDRESS/";
+    private static final String START_URL = "https://anktsngh48.github.io/nkt-justsay/";
     // ▲▲▲
 
     private static final long LOAD_TIMEOUT_MS = 25000;   // give up and show "Can't connect" after this
