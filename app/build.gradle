@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Signing: when the GitHub secrets are set, the workflow passes a fixed key in through
+// these environment variables, so every new APK installs over the old one as an update.
+// Without them the build falls back to a throwaway debug key (still installable).
+def ksPath = System.getenv("NKT_KEYSTORE_PATH")
+
+android {
+    namespace 'com.nkt.justsay'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.nkt.justsay"
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            if (ksPath) {
+                storeFile file(ksPath)
+                storePassword System.getenv("NKT_KEYSTORE_PASSWORD")
+                keyAlias System.getenv("NKT_KEY_ALIAS")
+                keyPassword System.getenv("NKT_KEY_PASSWORD")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig ksPath ? signingConfigs.release : signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

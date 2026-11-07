@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NKT JustSay</string>
+    <!-- The only error message the app ever shows -->
+    <string name="cant_connect">Can\'t connect</string>
+    <string name="try_again">TRY AGAIN</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+</resources>
